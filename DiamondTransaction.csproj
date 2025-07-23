@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1EBC86D2-960A-421D-97BC-883A760C4A32}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DiamondTransaction</RootNamespace>
+    <AssemblyName>DiamondTransaction</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.1.66\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.1\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.2\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.1\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess\CertificateDataAccess.cs" />
+    <Compile Include="DataAccess\CertificateTypeDataAccess.cs" />
+    <Compile Include="DataAccess\DiamondGradingDataAccess.cs" />
+    <Compile Include="DataAccess\DiamondLotDataAccess.cs" />
+    <Compile Include="DataAccess\DocHeaderDataAccess.cs" />
+    <Compile Include="DataAccess\DocLineDataAccess.cs" />
+    <Compile Include="DataAccess\PriceStockHistoryDataAccess.cs" />
+    <Compile Include="DataAccess\RapaportDataAccess.cs" />
+    <Compile Include="Domain\Entities\DiamondGrades.cs" />
+    <Compile Include="Domain\Entities\ParcelGrades.cs" />
+    <Compile Include="UseCases\Interfaces\IDiamondLotRepository.cs" />
+    <Compile Include="UseCases\Interfaces\IDocHeaderRepository.cs" />
+    <Compile Include="UI\GridConfig\IColumnConfiguration.cs" />
+    <Compile Include="UseCases\Interfaces\IDiamondGradingRepository.cs" />
+    <Compile Include="UseCases\Interfaces\ICertificateRepository.cs" />
+    <Compile Include="UseCases\Interfaces\ICertificateTypeRepository.cs" />
+    <Compile Include="UseCases\Interfaces\IDiamondDocRepository.cs" />
+    <Compile Include="UseCases\Interfaces\IDocLineRepository.cs" />
+    <Compile Include="UseCases\Interfaces\IPriceStockHistoryRepository.cs" />
+    <Compile Include="UseCases\Interfaces\IRapaportRepository.cs" />
+    <Compile Include="UseCases\Interfaces\ISupplierRepository.cs" />
+    <Compile Include="UseCases\Models\CertificateTypeDto.cs" />
+    <Compile Include="UseCases\Models\DiamondLotDto.cs" />
+    <Compile Include="UseCases\Models\DiamondSizeDto.cs" />
+    <Compile Include="UseCases\Models\DocHeaderDto.cs" />
+    <Compile Include="UseCases\Models\DocHeaderSubDto.cs" />
+    <Compile Include="UseCases\Models\DocLineDto.cs" />
+    <Compile Include="UI\GridConfig\ColumnConfigurations.cs" />
+    <Compile Include="UI\GridConfig\ColumnFormat.cs" />
+    <Compile Include="UI\Utilities\FormControlHelper.cs" />
+    <Compile Include="UI\GridConfig\GridColumnFormat.cs" />
+    <Compile Include="UseCases\Models\WorkingLineDto.cs" />
+    <Compile Include="UseCases\Models\PriceStockHistoryDto.cs" />
+    <Compile Include="UseCases\Models\SourceLotChangeDto.cs" />
+    <Compile Include="UseCases\Services\CertificateService.cs" />
+    <Compile Include="UseCases\Services\CertificateTypeService.cs" />
+    <Compile Include="UseCases\Services\CustomerService.cs" />
+    <Compile Include="UseCases\Interfaces\ICustomerRepository.cs" />
+    <Compile Include="UI\CertificateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CertificateForm.Designer.cs">
+      <DependentUpon>CertificateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UseCases\Models\CertificateDto.cs" />
+    <Compile Include="UI\Controls\CertificateDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\CertificateDetailView.Designer.cs">
+      <DependentUpon>CertificateDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GridConfig\GridColumns.cs" />
+    <Compile Include="UI\Utilities\ControlNameAndTextManager.cs" />
+    <Compile Include="DataAccess\CustomerDataAccess.cs" />
+    <Compile Include="DataAccess\DiamondDocDataAccess.cs" />
+    <Compile Include="DataAccess\SqlQueryExecutor.cs" />
+    <Compile Include="DataAccess\SupplierDataAccess.cs" />
+    <Compile Include="DevTHLStoreDataSet.cs">
+      <DependentUpon>DevTHLStoreDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DevTHLStoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DevTHLStoreDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DiamondTransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DiamondTransactionForm.Designer.cs">
+      <DependentUpon>DiamondTransactionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\DocHeaderControls.cs" />
+    <Compile Include="UI\Event\SaveWorkingLineEventArgs.cs" />
+    <Compile Include="UI\LotFinderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LotFinderForm.Designer.cs">
+      <DependentUpon>LotFinderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UseCases\Models\Customer.cs" />
+    <Compile Include="UseCases\Models\CustomerBranch.cs" />
+    <Compile Include="UseCases\Models\DiamondLotMaxID.cs" />
+    <Compile Include="UseCases\Models\DocHeaderMaxInfo.cs" />
+    <Compile Include="Domain\Entities\DocType.cs" />
+    <Compile Include="Domain\Entities\ExchangeRate.cs" />
+    <Compile Include="UseCases\Models\Supplier.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\WorkingLineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\WorkingLineForm.Designer.cs">
+      <DependentUpon>WorkingLineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UseCases\Services\DiamondDocService.cs" />
+    <Compile Include="UseCases\Services\DiamondLotService.cs" />
+    <Compile Include="UseCases\Services\DocCreationService.cs" />
+    <Compile Include="UseCases\Services\DiamondGradingService.cs" />
+    <Compile Include="UseCases\Services\DocHeaderService.cs" />
+    <Compile Include="UseCases\Services\DocLineService.cs" />
+    <Compile Include="UI\GridConfig\GridColumnBuilder.cs" />
+    <Compile Include="UseCases\Services\PriceStockHistoryService.cs" />
+    <Compile Include="UseCases\Services\RapaportPriceService.cs" />
+    <Compile Include="UseCases\Services\SupplierService.cs" />
+    <EmbeddedResource Include="UI\CertificateForm.resx">
+      <DependentUpon>CertificateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\CertificateDetailView.resx">
+      <DependentUpon>CertificateDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DiamondTransactionForm.resx">
+      <DependentUpon>DiamondTransactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LotFinderForm.resx">
+      <DependentUpon>LotFinderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\WorkingLineForm.resx">
+      <DependentUpon>WorkingLineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DevTHLStoreDataSet.xsc">
+      <DependentUpon>DevTHLStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DevTHLStoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DevTHLStoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DevTHLStoreDataSet.xss">
+      <DependentUpon>DevTHLStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
